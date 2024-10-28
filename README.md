@@ -3,7 +3,7 @@
 ## Project Goal 🎯
 The goal of this project is to accurately predict food delivery times based on key factors such as the delivery partner's age, prior performance ratings, travel distance, and vehicle type. By leveraging a Long Short-Term Memory (LSTM) neural network model, this project aims to model realistic delivery scenarios by analyzing real-time and historical data. Incorporating the type of vehicle used for delivery, along with dynamic route distance calculations, allows for a nuanced prediction that reflects varying speeds and traffic conditions. Ultimately, this project seeks to optimize delivery time estimations, offering actionable insights for improving delivery efficiency and customer satisfaction in the food delivery domain.
 
-## Features
+## Features ✨
 - **Delivery Partner Information** 👤: Customers can enter details about the delivery partner, such as age and previous ratings, to receive tailored delivery time predictions.
 
 - **Distance Input** 📏: Users input the total distance for the delivery, helping them understand the delivery context better.
