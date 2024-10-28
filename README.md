@@ -20,9 +20,21 @@ The goal of this project is to accurately predict food delivery times based on k
 
 - **Error Notifications**: Informative messages alert users to any issues with their input, ensuring they can correct mistakes and resubmit their information.
 
+## Project Structure
+```plaintext
+├── .gitignore
+├── README.md
+├── app.py
+├── deliverytime.txt
+├── model.pkl
+├── model.py
+└── rmg.png
+```
+
 ## Video Output
 Watch the project demo here: 
 
+https://github.com/user-attachments/assets/51b5bfdf-e95b-446b-86fb-b5b7b54d38af
 
 ## Requirements
 To run this project, ensure you have the following dependencies installed:
