@@ -4,7 +4,6 @@ from tensorflow.keras.models import Sequential
 from tensorflow.keras.layers import Dense, LSTM
 from sklearn.model_selection import train_test_split
 
-# Load and preprocess data
 def load_and_preprocess_data(file_path):
     data = pd.read_csv(file_path)
     R = 6371  # Earth's radius in kilometers
@@ -34,7 +33,6 @@ def load_and_preprocess_data(file_path):
     
     return xtrain, xtest, ytrain, ytest
 
-# Build and train model
 def build_and_train_model(xtrain, ytrain):
     model = Sequential([
         LSTM(128, return_sequences=True, input_shape=(xtrain.shape[1], 1)),
@@ -55,15 +53,14 @@ def predict_delivery_time(model, age, ratings, distance, vehicle_type):
         'bicycle': 17.5
     }
     average_speed = speed_map.get(vehicle_type, 0)
-    
-    # Prediction
+
     features = np.array([[age, ratings, distance]])
     predicted_time = model.predict(features)[0][0]
     
-    # Adjust predicted time based on vehicle speed
+    # Adjust predicted time based on vehicle speed and Convert hours to minutes
     if average_speed > 0:
-        adjusted_time = (distance / average_speed) * 60  # Convert hours to minutes
+        adjusted_time = (distance / average_speed) * 60 
     else:
-        adjusted_time = None  # Invalid vehicle type
+        adjusted_time = None 
     
     return predicted_time, adjusted_time
