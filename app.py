@@ -2,14 +2,12 @@ import streamlit as st
 import model  
 import joblib
 
-# Load and preprocess data
 data_file = "E:\Project delivery time\deliverytime.txt" 
 try:
     xtrain, xtest, ytrain, ytest = model.load_and_preprocess_data(data_file)
 except Exception as e:
     st.error(f"Error loading data: {e}")
 
-# Load the trained model from the existing pkl file
 try:
     trained_model = joblib.load('model.pkl')  
 except Exception as e:
@@ -35,10 +33,8 @@ with col2:
     ratings = st.number_input("Ratings of Previous Deliveries", min_value=0.0, max_value=5.0, step=0.1, value=4.5)
     distance = st.number_input("Total Distance (km)", min_value=0.0, max_value=100.0, step=0.1, value=5.0)
 
-    # Dropdown for vehicle type
     vehicle_type = st.selectbox("Type of Vehicle", ['motorcycle', 'scooter', 'electric_scooter', 'bicycle'])
 
-    # Predict button
     if st.button("Predict Delivery Time"):
         try:
             predicted_time, adjusted_time = model.predict_delivery_time(trained_model, age, ratings, distance, vehicle_type)
